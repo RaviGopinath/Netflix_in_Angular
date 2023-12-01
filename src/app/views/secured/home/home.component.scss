@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+.home {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.home-page {
+    width: 100%;
+    padding-top: 60px;
+}
+
+.home-header {
+    position: fixed;
+    z-index: 250;
+    width: 100%;
+    top: 0px;
+}
+
+.header {
+    background-color: #fff;
+    box-shadow: rgba(245, 243, 243, 0.12) 0px 1px 3px, rgba(247, 245, 245, 0.24) 0px 1px 2px;
+}
+
+.loading span {
+    padding: 2px 25px;
+    color: #fff;
+    border-radius: 2px;
+    height: 20px;
+    font-size: 20px;
+}
+
+.card-img-top {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.search {
+    position: fixed;
+    z-index: 250;
+}
+
+.form-control {
+    width: 80%;
+}
+
+.card-list {
+    margin-top: 50px;
+}
+
+.form {
+    position: relative;
+}
+
+.form .fa-search {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.form span {
+    position: absolute;
+    right: 17px;
+    top: 7px;
+    padding: 2px;
+    border-left: 1px solid #d1d5db;
+}
+
+.form-input {
+    height: 35px;
+    text-indent: 33px;
+    border-radius: 10px;
+    border: none !important;
+}
+
+.form-input:focus {
+    box-shadow: none;
+    border: none;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-close {
+    background-color: #9ca3af;
+    border-radius: 50%;
+}
+
+.modal-body .card {
+    border: none !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.movie-img img {
+    height: 330px;
+    border-radius: 10px;
+}
+
+.movies {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap !important;
+}
+
+.moviename p span {
+    margin: 5px;
+    font-weight: bold;
+}
+
+.card-img,
+.card-img-bottom,
+.card-img-top {
+    width: 100%;
+    height: 300px;
+}
+
+.card .card-img-top {
+    filter: brightness(45%);
+}
+
+.card-list .card:hover {
+    transform: scale(1.1);
+    transition: transform 2s, filter 1.5s ease-in-out;
+    transform-origin: center center;
+    filter: brightness(2);
+    z-index: 1;
+}
+
+.card-list .card {
+    transition: transform 2s;
+}
+
+.heading {
+    margin-top: 10px;
+    margin-bottom: -50px;
+    color: #fff;
+}
+.sub-header{
+    width: 100%;
+    background-color: #555454;
+    height: 83px;
+    position: fixed;
+    top: 23px;
+    z-index: 1;
+}
+.lenght{
+    padding-top: 40px;
+}
+@media only screen and (max-width: 600px) {
+
+    .form-control {
+        width: 300px;
+    }
+
+    .movies {
+        flex-wrap: wrap !important;
+    }
+
+    .card-img,
+    .card-img-bottom,
+    .card-img-top {
+        height: 100%;
+    }
+    .movie-img img {
+        height: 300px;
+    }
+
+    .card-list .card:hover {
+        transform: scale(1);
+    }
+}
+
+

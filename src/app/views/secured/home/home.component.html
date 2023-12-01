@@ -1,0 +1,95 @@
+<div class="home">
+    <!-- Home page header -->
+    <div class="home-header">
+        <nav class="navbar navbar-light header">
+            <div class="container-fluid justify-content-end">
+                <button (click)="Logout()" class="btn btn-secondary">Logout</button>
+            </div>
+        </nav>
+    </div>
+    <!-- Modal template -->
+    <ng-template #messageContent let-modal>
+        <div class="modal-header">
+            <button type="button" class="btn-close" aria-label="Close" (click)="desmiss(modal)"></button>
+        </div>
+        <div class="modal-body">
+            <div class="card">
+                <div class="movies row">
+                    <div class="movie-img text-center col-sm-6">
+                        <img src="{{singleImage}}" alt="singleImage">
+                    </div>
+                    <div class="moviename m-2  col-sm-6" *ngIf="recMovie">
+                        <p><span>Title</span> : {{title}}.</p>
+                        <p><span>Year</span> : {{year}}.</p>
+                        <p><span>Time</span> : {{time}}.</p>
+                    </div>
+                    <div class="moviename m-2  col-sm-6" *ngIf="allMovie">
+                        <p><span>Title</span> : {{title}}.</p>
+                        <p><span>Year</span> : {{year}}.</p>
+                        <p><span>Time</span> : {{time}}.</p>
+                        <p><span>Released Date</span> : {{Released}}.</p>
+                        <p><span>Director</span> : {{Director}}.</p>
+                        <p><span>Actors</span> : {{Actors}}.</p>
+                        <p><span>Language</span> : {{Language}}.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="text-center">
+                <button class="btn btn-outline-primary cancelProcedBtn" (click)="desmiss(modal)">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </ng-template>
+    <!-- Home page body -->
+    <div class="container home-page ">
+        <div class="sub-header">
+            <div class="col-md-5 mt-5 search">
+                <div class="form">
+                    <i class="fa fa-search"></i>
+                    <input type="text" class="form-control form-input" placeholder="Search movie name..."
+                        [(ngModel)]="searchText" name="searchText">
+                </div>
+            </div>
+        </div>
+        <!-- loading -->
+        <div class="text-center pt-5 loading" role="status">
+            <span *ngIf="loading">Loading... <i class="fa fa-circle-notch fa-spin"></i></span>
+        </div>
+        <!--Recommended movie lists -->
+        <div class="container-fluid">
+            <div class="heading">
+                <h4 *ngIf="recommed">Recommended Movies</h4>
+            </div>
+            <div class="row d-flex cards">
+                <div class="col-md-3 col-sm-6 card-list"
+                    *ngFor="let data of apiMovieList |searchByName:searchText;index as i">
+                    <div class="card " (click)="reCardDetails(i,messageContent)" >
+                        <img src="{{data.Poster}}" class="card-img-top" alt="...">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- All movie List -->
+        <div class="container-fluid">
+            <div class="heading">
+                <h4 *ngIf="all" class="pt-5">All Movies</h4>
+            </div>
+            <div class="row d-flex cards">
+                <div class="col-md-3 col-sm-6 card-list"
+                    *ngFor="let data of arrMovieList |searchByName:searchText;index as i">
+                    <div class="card" (click)="cardDetails(i,messageContent)">
+                        <img src="{{data.Poster}}" class="card-img-top" alt="...">
+                    </div>
+                </div>
+            </div>
+            <div class="lenght">
+                <h5 *ngIf="arrLength" class="text-light text-center">No Results Found...!</h5>
+            </div>
+        </div>
+    </div>
+
+
+    
